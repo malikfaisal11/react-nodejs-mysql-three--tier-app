@@ -1,95 +1,77 @@
-# React.js CRUD App with React Router & Axios
+3-Tier E-commerce Application
+Live Application
+Frontend URL: http://18.207.123.74:3000
+Backend API: http://18.207.123.74:8080
 
-Build a React.js CRUD Application to consume Web API, display and modify data with Router, Axios & Bootstrap.
+Project Overview
+A fully deployed 3-tier e-commerce web application with automated CI/CD pipeline running on AWS EC2.
 
-React Tutorial Application in that:
-- Each Tutorial has id, title, description, published status.
-- We can create, retrieve, update, delete Tutorials.
-- There is a Search bar for finding Tutorials by title.
+Architecture
+Frontend: React.js (Port 3000)
+Backend: Node.js/Express.js (Port 8080)
+Database: PostgreSQL (Port 5432)
+Infrastructure: AWS EC2 Ubuntu + Docker
+Repository Structure
+text
 
-![react-crud-example-web-api-demo](react-crud-example-web-api-demo.png)
+├── bezkoder-ui/ # React Frontend
+│ ├── src/
+│ ├── Dockerfile
+│ └── package.json
+├── bezkoder-api/ # Node.js Backend
+│ ├── .env
+│ ├── Dockerfile
+│ └── package.json
+├── docker-compose.yml # Multi-container setup
+└── .github/workflows/
+└── ci-cd.yml # CI/CD Pipeline
 
-For instruction, please visit:
-> [React CRUD example to consume Web API](https://bezkoder.com/react-crud-web-api/)
+Quick Deployment
+Prerequisites
+AWS EC2 Ubuntu instance
+Docker & Docker Compose
+GitHub repository with secrets configured
+Manual Deployment
+bash
 
-Related Posts:
-> [React Typescript CRUD example to consume Web API](https://bezkoder.com/react-typescript-axios/)
+Clone repository
+git clone https://github.com/malikfaisal11/react-nodejs-mysql-three--tier-app.git
+cd react-nodejs-mysql-three--tier-app
 
-> [React Redux CRUD App example with Rest API](https://bezkoder.com/react-redux-crud-example/)
+Deploy all services
+docker-compose up -d
 
-> [React (Hooks) CRUD example to consume Web API](https://bezkoder.com/react-hooks-crud-axios-api/)
+Check status
+docker-compose ps
 
-> [React Table example: CRUD App with react-table v7](https://bezkoder.com/react-table-example-hooks-crud/)
+CI/CD Pipeline
+GitHub Actions automatically:
 
-Using Material UI instead of Bootstrap:
-> [React Material UI examples with a CRUD Application](https://bezkoder.com/react-material-ui-examples-crud/)
+Builds Docker images on push to main branch
+Pushes images to Docker Hub
+Deploys updates to EC2 instance
+Pipeline Status
+https://github.com/your-username/your-repo/actions/workflows/ci-cd.yml/badge.svg
 
-More Practice:
-> [React Pagination example](https://bezkoder.com/react-pagination-material-ui/)
+Access Points
+Web Application: http://18.207.123.74:3000
+Backend API: http://18.207.123.74:8080/api
+Database: PostgreSQL@18.207.123.74:5432
+Features
+3-Tier Architecture
+Docker Containerization
+Automated CI/CD
+PostgreSQL Database
+RESTful APIs
+React Frontend
+Troubleshooting
+bash
 
-> [React File Upload example](https://bezkoder.com/react-file-upload-axios/)
+View logs
+docker-compose logs
 
-> [React JWT Authentication & Authorization example](https://bezkoder.com/react-jwt-auth/)
+Restart services
+docker-compose restart
 
-> [React + Redux: JWT Authentication & Authorization example](https://bezkoder.com/react-redux-jwt-auth/)
-
-Fullstack with Node.js Express:
-> [React.js + Node.js Express + MySQL](https://bezkoder.com/react-node-express-mysql/)
-
-> [React.js + Node.js Express + PostgreSQL](https://bezkoder.com/react-node-express-postgresql/)
-
-> [React.js + Node.js Express + MongoDB](https://bezkoder.com/react-node-express-mongodb-mern-stack/)
-
-Fullstack with Spring Boot:
-> [React.js + Spring Boot + MySQL](https://bezkoder.com/react-spring-boot-crud/)
-
-> [React.js + Spring Boot + PostgreSQL](https://bezkoder.com/spring-boot-react-postgresql/)
-
-> [React.js + Spring Boot + MongoDB](https://bezkoder.com/react-spring-boot-mongodb/)
-
-Fullstack with Django:
-
-> [React.js + Django Rest Framework](https://bezkoder.com/django-react-axios-rest-framework/)
-
-Serverless:
-> [React Firebase CRUD App with Realtime Database](https://bezkoder.com/react-firebase-crud/)
-
-> [React Firestore CRUD App example | Firebase Cloud Firestore](https://bezkoder.com/react-firestore-crud/)
-
-Integration (run back-end & front-end on same server/port)
-> [How to integrate React.js with Spring Boot](https://bezkoder.com/integrate-reactjs-spring-boot/)
-
-> [Integrate React with Node.js Express on same Server/Port](https://bezkoder.com/integrate-react-express-same-server-port/)
-
-
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
-
-### Set port
-.env
-```
-PORT=8081
-```
-
-## Project setup
-
-In the project directory, you can run:
-
-```
-npm install
-# or
-yarn install
-```
-
-or
-
-### Compiles and hot-reloads for development
-
-```
-npm start
-# or
-yarn start
-```
-
-Open [http://localhost:8081](http://localhost:8081) to view it in the browser.
-
-The page will reload if you make edits.
+Check container status
+docker-compose ps

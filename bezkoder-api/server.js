@@ -5,7 +5,13 @@ const cors = require("cors");
 const app = express();
 
 var corsOptions = {
-  origin: process.env.CLIENT_ORIGIN || "http://localhost:8081"
+  origin: [
+    "http://18.207.123.74:3000",  // Your frontend IP
+    "http://localhost:3000",       // Local development
+    "http://127.0.0.1:3000"       // Alternative local
+  ],
+  methods: ["GET", "POST", "PUT", "DELETE"],
+  credentials: true
 };
 
 app.use(cors(corsOptions));
@@ -19,10 +25,6 @@ app.use(express.urlencoded({ extended: true }));
 const db = require("./app/models");
 
 db.sequelize.sync();
-// // drop the table if it already exists
-// db.sequelize.sync({ force: true }).then(() => {
-//   console.log("Drop and re-sync db.");
-// });
 
 // simple route
 app.get("/", (req, res) => {

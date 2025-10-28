@@ -1,38 +1,114 @@
-# Docker Compose React, Nodejs and MySQL example
+# 3-Tier E-commerce Application
 
-## Run the System
-We can easily run the whole with only a single command:
-```bash
-docker-compose up
-```
+## Live Application
 
-Docker will pull the MySQL and Node.js images (if our machine does not have it before).
+**Frontend URL**: [http://18.207.123.74:3000](http://18.207.123.74:3000/)  
+**Backend API**: [http://18.207.123.74:8080](http://18.207.123.74:8080/)
 
-The services can be run on the background with command:
-```bash
+## Project Overview
+
+A fully deployed 3-tier e-commerce web application with automated CI/CD pipeline running on AWS EC2.
+
+##  Architecture
+
+- **Frontend**: React.js (Port 3000)
+    
+- **Backend**: Node.js/Express.js (Port 8080)
+    
+- **Database**: PostgreSQL (Port 5432)
+    
+- **Infrastructure**: AWS EC2 Ubuntu + Docker
+    
+
+##  Repository Structure
+
+text
+
+├── bezkoder-ui/                 # React Frontend
+│   ├── src/
+│   ├── Dockerfile
+│   └── package.json
+├── bezkoder-api/                # Node.js Backend
+│   ├── .env
+│   ├── Dockerfile
+│   └── package.json
+├── docker-compose.yml           # Multi-container setup
+└── .github/workflows/
+    └── ci-cd.yml               # CI/CD Pipeline
+
+## Quick Deployment
+
+### Prerequisites
+
+- AWS EC2 Ubuntu instance
+    
+- Docker & Docker Compose
+    
+- GitHub repository with secrets configured
+    
+
+### Manual Deployment
+
+bash
+
+# Clone repository
+git clone https://github.com/malikfaisal11/react-nodejs-mysql-three--tier-app.git
+cd react-nodejs-mysql-three--tier-app
+
+# Deploy all services
 docker-compose up -d
-```
 
-## Stop the System
-Stopping all the running containers is also simple with a single command:
-```bash
-docker-compose down
-```
+# Check status
+docker-compose ps
 
-If you need to stop and remove all containers, networks, and all images used by any service in <em>docker-compose.yml</em> file, use the command:
-```bash
-docker-compose down --rmi all
-```
+##  CI/CD Pipeline
 
-For more detail, please visit:
-> [Docker Compose React + Node.js + MySQL example](https://www.bezkoder.com/docker-compose-react-nodejs-mysql/)
+**GitHub Actions** automatically:
 
-Related Posts:
-> [React + Node.js Express + MySQL](https://bezkoder.com/react-node-express-mysql/)
+- Builds Docker images on push to main branch
+    
+- Pushes images to Docker Hub
+    
+- Deploys updates to EC2 instance
+    
 
-> [React + Redux + Node.js Express + MySQL](https://www.bezkoder.com/react-redux-mysql-crud/)
+### Pipeline Status
 
-> [React + Node.js Express: User Authentication with JWT example](https://www.bezkoder.com/react-express-authentication-jwt/)
+[https://github.com/your-username/your-repo/actions/workflows/ci-cd.yml/badge.svg](https://github.com/your-username/your-repo/actions/workflows/ci-cd.yml/badge.svg)
 
-Integration (run back-end & front-end on same server/port)
-> [Integrate React with Node.js Restful Services](https://bezkoder.com/integrate-react-express-same-server-port/)
+##  Access Points
+
+- **Web Application**: [http://18.207.123.74:3000](http://18.207.123.74:3000/)
+    
+- **Backend API**: [http://18.207.123.74:8080/api](http://18.207.123.74:8080/api)
+    
+- **Database**: PostgreSQL@18.207.123.74:5432
+    
+
+##  Features
+
+-  3-Tier Architecture
+    
+-  Docker Containerization
+    
+-  Automated CI/CD
+    
+-  PostgreSQL Database
+    
+-  RESTful APIs
+    
+-  React Frontend
+    
+
+##  Troubleshooting
+
+bash
+
+# View logs
+docker-compose logs
+
+# Restart services
+docker-compose restart
+
+# Check container status
+docker-compose ps
